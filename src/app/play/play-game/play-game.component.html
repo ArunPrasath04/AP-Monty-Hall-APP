@@ -22,6 +22,7 @@
 
         </div>
         <div class="simulation-input">
+            <p-button label="Back to Main Menu" icon="pi pi-caret-left" severity="secondary" (click)="backToMain()"></p-button>
             <p-button label="Start" icon="pi pi-play" (click)="startPlay()" [disabled]="!simulationCount || (switchDoors == null)"></p-button>
         </div>
     </div>

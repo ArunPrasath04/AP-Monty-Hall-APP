@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { PlayService } from './play-game.component.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-play-game',
@@ -17,7 +18,7 @@ export class PlayGameComponent {
     switchDoors: boolean | null = null;
     simulationCount: number = 0;
 
-    constructor (private playService : PlayService) {
+    constructor (private playService : PlayService, private router : Router) {
 
     }
 
@@ -40,6 +41,9 @@ export class PlayGameComponent {
       this.showResults = false;
       this.simulationCount = 0;
       this.switchDoors = null;
+    }
 
+    backToMain () {
+    this.router.navigate(['/']);
     }
 }

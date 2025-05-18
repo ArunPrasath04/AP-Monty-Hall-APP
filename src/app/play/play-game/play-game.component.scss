@@ -35,6 +35,10 @@
 
 .simulation-input {
     padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .input-items {

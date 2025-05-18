@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="title">
+        <h1>MONTY-HALL</h1>
+    </div>
+    <div class="input-items" *ngIf="!isStarted">
+        <div class="input-items">
+            <p class="welcome-text">Enter the number of simulations you want to try</p>
+            <p-inputnumber inputId="integeronly" [(ngModel)]="simulationCount" />
+        </div>
+        <div>
+            <p class="welcome-text">Do you want you switch doors once monty picks ?</p>
+            <div class="switch-door-radio">
+                <div class="switch-radio">
+                    <p-radiobutton name="changeDoors" value="true" [(ngModel)]="switchDoors" inputId="switchDoorYes" />
+                    <label for="switchDoorYes" class="ml-2">Yes</label>
+                </div>
+                <div class="switch-radio">
+                    <p-radiobutton name="changeDoors" value="false" [(ngModel)]="switchDoors" inputId="switchDoorNo" />
+                    <label for="switchDoorNo" class="ml-2">No</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="simulation-input">
+            <p-button label="Start" icon="pi pi-play" (click)="startPlay()" [disabled]="!simulationCount || (switchDoors == null)"></p-button>
+        </div>
+    </div>
+    <div class="stats-n-btns-new" *ngIf="showResults && isStarted">
+        <div class="stats-n-btns">
+            <div class="stats">
+                <p>Win : {{winCount}}</p>
+                <p>Lose : {{loseCount}}</p>
+            </div>
+            <div>
+                <p>Total Attempts : {{simulationCount}}</p>
+            </div>
+        </div>
+        <div>            
+            <div class="try-again-btn">
+                <p-button label="Try Again" severity="help" (click)="playAgain()"></p-button>
+            </div>
+        </div>
+    </div>
+</div>
